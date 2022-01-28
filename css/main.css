@@ -1,0 +1,144 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary-blue: hsl(215, 51%, 70%);
+  --color-primary-cyan: hsl(178, 100%, 50%);
+
+  --color-blue-900: hsl(217, 54%, 11%);
+  --color-blue-800: hsl(216, 50%, 16%);
+  --color-blue-600: hsl(215, 32%, 27%);
+
+  --color-white: hsl(0, 0%, 100%);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  color: var(--color-white);
+  background: var(--color-blue-900);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-blue-800);
+  border-radius: 16px;
+  width: 22rem;
+  padding: 1.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.card__image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.card__image img {
+  max-width: 100%;
+  display: block;
+}
+
+.card__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: no-repeat center url('../images/icon-view.svg')
+    rgba(0, 255, 247, 0.7);
+  cursor: pointer;
+  transition: opacity 300ms ease-out;
+}
+
+.card__image:hover::after {
+  opacity: 1;
+}
+
+.card h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem 0;
+  width: max-content;
+}
+
+.card h1:hover {
+  color: var(--color-primary-cyan);
+  cursor: pointer;
+}
+
+.card > p {
+  color: var(--color-primary-blue);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.card__values {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  font-size: 1rem;
+}
+
+.card__price,
+.card__days {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.card__price {
+  color: var(--color-primary-cyan);
+  font-weight: 600;
+}
+
+.card__days {
+  color: var(--color-primary-blue);
+}
+
+.card__author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--color-blue-600);
+  padding: 1rem 0 0.5rem 0;
+}
+
+.card__author img {
+  height: 2rem;
+  border: 1px solid var(--color-white);
+  border-radius: 50%;
+}
+
+.card__author p {
+  color: var(--color-primary-blue);
+  font-size: 1rem;
+}
+
+.card__author p span {
+  color: var(--color-white);
+}
+
+.card__author p span:hover {
+  color: var(--color-primary-cyan);
+  cursor: pointer;
+}
+
+footer {
+  position: absolute;
+  inset: auto 0 1rem 0;
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+footer a {
+  color: var(--color-primary-cyan);
+}
